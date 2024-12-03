@@ -27,7 +27,6 @@ char = '_'
 layers = [str(x) for x in args.layers]
 swap_layers = char.join(layers)
 
-# 假如要使用once，只融合指定的两个模型一次，并可以指定融合的层数
 if args.once:
     vis_path = f'./vis/{name}/{count}/'
     model_path = f'./checkpoints/{name}/{count}/'
@@ -62,7 +61,6 @@ else:
 os.makedirs(vis_path, exist_ok=True)
 os.makedirs(model_path, exist_ok=True)
 
-# 假如要使用swap strategy，只融合指定层一次
 if args.swap:
     filename = f"blended-{swap_layers}.jpg"
     if args.reverse:

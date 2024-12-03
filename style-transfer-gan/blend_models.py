@@ -65,7 +65,7 @@ def blend_models(model_1, model_2, resolution, level, blend_width=None, verbose=
 
         x = position - mid_point_pos
 
-        # 加入smooth参数来控制特定层使用toon，特定层使用ffhq，比如
+        # add smooth hyperparams to control which layers to use finetuned weights and which for ffhq
         if smooth is not None:
             res_tmp = int(resolution.split('x')[0])
             print(res_tmp)
