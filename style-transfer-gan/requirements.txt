@@ -11,3 +11,4 @@ pillow
 requests
 numpy
 six
+matplotlib
