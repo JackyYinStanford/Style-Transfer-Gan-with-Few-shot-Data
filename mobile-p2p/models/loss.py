@@ -273,7 +273,7 @@ class VGGLoss(nn.Module):
     def __init__(self, vgg=VGG()):
         super().__init__()
         self.vgg = vgg
-        self.vgg.load_state_dict(torch.load('/data/pix2pix-cyclegan/pretrained_models/vgg16-397923af.pth'))
+        self.vgg.load_state_dict(torch.load('/home/jackyyin/Desktop/vgg16-397923af.pth'))
         for param in self.vgg.parameters():
             param.requires_grad = False
         if torch.cuda.is_available():
@@ -306,7 +306,7 @@ class VGGLossTotal(nn.Module):
     def __init__(self, vgg=VGG()):
         super().__init__()
         self.vgg = vgg
-        self.vgg.load_state_dict(torch.load('/data/pix2pix-cyclegan/pretrained_models/vgg16-397923af.pth'))
+        self.vgg.load_state_dict(torch.load('/home/jackyyin/Desktop/vgg16-397923af.pth'))
         for param in self.vgg.parameters():
             param.requires_grad = False
         if torch.cuda.is_available():
@@ -355,7 +355,7 @@ class VGG16FeatureExtractor(nn.Module):
         #vgg16 = models.vgg16(pretrained=True)        
         
         vgg16 = models.vgg16(pretrained=False)
-        state_dict = torch.load('/data/pix2pix-cyclegan/pretrained_models/vgg16-397923af.pth')
+        state_dict = torch.load('/home/jackyyin/Desktop/vgg16-397923af.pth')
         vgg16.load_state_dict(state_dict)
     
         self.enc_1 = nn.Sequential(*vgg16.features[:5])
@@ -939,7 +939,7 @@ def make_vgg16_layers(style_avg_pool = False):
 
 
 class VGG16Partial(nn.Module):
-    def __init__(self, vgg_path='/data/pix2pix-cyclegan/pretrained_models/vgg16-397923af.pth', layer_num=3):
+    def __init__(self, vgg_path='/home/jackyyin/Desktop/vgg16-397923af.pth', layer_num=3):
         """
         Init
         :param layer_num: number of layers
@@ -1031,7 +1031,7 @@ class VGG16PartialLoss(PerceptualLoss):
     """
 
     def __init__(self, l1_alpha=5.0, perceptual_alpha=0.05, style_alpha=120,
-                 smooth_alpha=0, feat_num=3, vgg_path='/data/pix2pix-cyclegan/pretrained_models/vgg16-397923af.pth'):
+                 smooth_alpha=0, feat_num=3, vgg_path='/home/jackyyin/Desktop/vgg16-397923af.pth'):
         super().__init__()
 
         self.vgg16partial = VGG16Partial(vgg_path=vgg_path).eval()

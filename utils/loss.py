@@ -134,7 +134,7 @@ class VGGLoss(nn.Module):
         super().__init__()
         self.vgg = vgg
         self.vgg.load_state_dict(torch.load(
-            '/data/pix2pix-cyclegan/pretrained_models/vgg16-397923af.pth'))
+            '/home/jackyyin/Desktop/vgg16-397923af.pth'))
         for param in self.vgg.parameters():
             param.requires_grad = False
         if torch.cuda.is_available():
@@ -168,7 +168,7 @@ class VGGLossTotal(nn.Module):
         super().__init__()
         self.vgg = vgg
         self.vgg.load_state_dict(torch.load(
-            '/data/pix2pix-cyclegan/pretrained_models/vgg16-397923af.pth'))
+            '/home/jackyyin/Desktop/vgg16-397923af.pth'))
         for param in self.vgg.parameters():
             param.requires_grad = False
         if torch.cuda.is_available():
@@ -217,7 +217,7 @@ class VGG16FeatureExtractor(nn.Module):
 
         vgg16 = models.vgg16(pretrained=False)
         state_dict = torch.load(
-            '/data/pix2pix-cyclegan/pretrained_models/vgg16-397923af.pth')
+            '/home/jackyyin/Desktop/vgg16-397923af.pth')
         vgg16.load_state_dict(state_dict)
 
         self.enc_1 = nn.Sequential(*vgg16.features[:5])

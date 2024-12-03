@@ -45,12 +45,9 @@ class AlignedAttentionDataset(BaseDataset):
             DEGREE = 2 * scale_ratio
             RATE = 0.02 * scale_ratio
             tf2 = transforms.RandomChoice([
-                transforms.RandomAffine(degrees=DEGREE, translate=(RATE, RATE), scale=(1.0 - RATE, 1.0 + RATE),
-                                        resample= Image.BICUBIC),
-                transforms.RandomAffine(degrees=DEGREE, translate=(RATE, RATE), scale=(1.0 - RATE, 1.0 + RATE), 
-                                        resample= Image.BICUBIC),
-                transforms.RandomAffine(degrees=DEGREE, translate=(RATE, RATE), scale=(1.0 - RATE, 1.0 + RATE),
-                                        resample= Image.BICUBIC),
+                transforms.RandomAffine(degrees=DEGREE, translate=(RATE, RATE), scale=(1.0 - RATE, 1.0 + RATE)),
+                transforms.RandomAffine(degrees=DEGREE, translate=(RATE, RATE), scale=(1.0 - RATE, 1.0 + RATE)),
+                transforms.RandomAffine(degrees=DEGREE, translate=(RATE, RATE), scale=(1.0 - RATE, 1.0 + RATE)),
             ])
 
             RATE_COLOR = 0.04
